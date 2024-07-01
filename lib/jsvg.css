@@ -1,0 +1,12 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width:100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.center{transform: translateX(50%);}
+.right{transform: translateX(99%);}
+.full{width: 100%;}

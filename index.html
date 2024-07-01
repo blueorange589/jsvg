@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ES8 Project</title>
+  <link rel="stylesheet" href="./lib/jsvg.css">
+  </link>
+
+</head>
+
+<body>
+
+  <object data="./imports/buttons.svg"> </object>
+
+  <div id="square"></div>
+  <div id="buttons"></div>
+
+  <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
+  <script src="./lib/jsvg.js"></script>
+  <script src="./lib/components/button.js"></script>
+  <script>
+    window.addEventListener("load", (event) => {
+      const svgs = document.getElementsByTagName('svg')
+      //s = SVG.html(bgrp[0]),
+      //g.size(100)
+
+      alert(svgs.length)
+      console.log("page is fully loaded");
+    });
+
+
+    SVG.on(document, 'DOMContentLoaded', function() {
+      var draw = SVG().addTo('#square').size(300, 300)
+      var rect = draw.rect(100, 100).attr({ fill: '#f06' })
+      const btn = jsvg.button({
+        stretch: false,
+        size: 'md',
+        'stroke-width': 1
+      })
+      btn.addTo('#buttons')
+
+    })
+  </script>
+</body>
+
+</html>
