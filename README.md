@@ -1,4 +1,4 @@
-# pjsvg
+# jsvg
 
 Create SVG app layouts in minutes, only using JS.
 
