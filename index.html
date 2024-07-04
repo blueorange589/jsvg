@@ -3,85 +3,58 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>ES8 Project</title>
-  <link rel="stylesheet" href="./lib/jsvg.css">
-  </link>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-  <div id="app">
-    <div id="header"></div>
-    <div id="main">
-      <div id="content">
-        
-      </div>
-      <div id="footer"></div>
-    </div>
+
+  <div id="svgtxt">
+
   </div>
-
-
-  <div id="buttons"></div>
-
-  <object data="./imports/buttons.svg"> </object>
-
-  <div id="square"></div>
-
-  <script src="./cdn_modules/opentype.js"></script>
+  <script src="./cdn_modules/opentype.min.js"></script>
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
   <script src="./lib/jsvg.js"></script>
   <script src="./lib/components/button.js"></script>
   <script src="./app.js"></script>
+  
+
   <script>
-    const makeText = (str, fontSize = 16) => {
-      //const ctx = document.getElementById('canvas').getContext('2d'),
-      offsetY = (fontSize*0.8)
-      path = jsvg.font.getPath(str, 0, offsetY, fontSize),
-      bbox = path.getBoundingBox()
+    window.addEventListener("load", async (event) => {
 
-      console.log(bbox)
+      jsvg.create.items()
+      const icon = await jsvg.load.icon('clubs', {height: 32})
+      //icon.addTo('#svgtxt')
 
-      const canvas = document.createElement('canvas')
-      canvas.width = bbox.x2
-      canvas.height = bbox.y2+4
-
-      const ctx = canvas.getContext('2d')
-
-      path.draw(ctx);
-      return canvas
-    }
-
-    window.addEventListener("load", (event) => {
-      const svgs = document.getElementsByTagName('svg')
-      //s = SVG.html(bgrp[0]),
-      //g.size(100)
-
-      // alert(svgs.length)
-      console.log("page is fully loaded");
+      const text = jsvg.create.text('hello world', {height: 32})
+      //text.addTo('#svgtxt')
 
 
-
-      const buffer = fetch('https://assets.codepen.io/1070/basiersquare-bold-webfont.woff').then(res => res.arrayBuffer());
-      buffer.then(data => {
-          jsvg.font = opentype.parse(data);
-          const t1 = makeText('this is a PURE svg text')
-          const ct = document.getElementById('svgtext')
-          ct.appendChild(t1)
-
-          const t2 = makeText('welcome to SVG site')
-          const ct2 = document.getElementById('svgtext2')
-          ct2.appendChild(t2)
-
+      const burger = jsvg.create.element('svgtxt', {
+        fill: 'black',
+        rx: 4,
+        width: 'auto',
+        spacing: { top: 4, right: 8, bottom: 4, left: 8 },
+        stroke: {
+          color: 'gray',
+          width: 1,
+          type: 'solid'
+        },
+        items: {
+          direction: 'row',
+          arrange: 'start', // start, end, center, evenly
+          align: 'center',
+        },
+        contains: [icon, text]
       })
 
-    });
+
+    })
 
 
 
   </script>
+
 </body>
 
 </html>
