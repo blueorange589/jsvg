@@ -58,5 +58,9 @@ SVG.js \[<https://svgjs.dev/docs/3.2/>\]
 
 
 idea and develooment by kermit the frog, with love 😂
+
+
 public. no license.
+
+for personal limitations, you may check https://github.com/blueorange589/artwork/blob/main/personal-law.md
 
