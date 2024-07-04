@@ -1,4 +1,4 @@
-# jsvg
+# pjsvg
 
 Create SVG app layouts in minutes, only using JS.
 
@@ -47,3 +47,12 @@ Demo \[WIP\]: <https://blueorange589.github.io/jsvg/>
 
 
 Happy y’all freedom lovers! 🎉
+
+
+**Credits**
+
+Opentype.js \[<https://opentype.js.org/>\]
+
+SVG.js \[<https://svgjs.dev/docs/3.2/>\]
+
+
