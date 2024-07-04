@@ -12,6 +12,7 @@ App layout is ready and fully SVG.
 * Eliminates HTML and CSS coding 🎉
 * Pixel Perfect, Design-View match
 * Utilizing high quality vector elements
+* Auto-scaling elements for device size (auto-responsive)
 
 
 ## Project Target
