@@ -43,4 +43,7 @@ const button = jsvg.create.element('button', {
 ```
 
 
+Demo \[WIP\]: <https://blueorange589.github.io/jsvg/>
+
+
 Happy y’all freedom lovers! 🎉
