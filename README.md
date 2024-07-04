@@ -57,5 +57,6 @@ Opentype.js \[<https://opentype.js.org/>\]
 SVG.js \[<https://svgjs.dev/docs/3.2/>\]
 
 
-developed by kermit the frog, with love 😂
+idea and develooment by kermit the frog, with love 😂
+public. no license.
 
