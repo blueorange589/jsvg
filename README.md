@@ -17,7 +17,7 @@ App layout is ready and fully SVG.
 
 ## Project Target
 
-Vector graphics component creation using JS objects, for both mobile and web apps.
+Vector graphics component creation using JS objects, for both mobile and web apps. with possibility to merge 2 in future 😁
 
 
 ```javascript
