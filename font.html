@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="svgtxt">
+
+  </div>
+  <script src="./cdn_modules/opentype.min.js"></script>
+  <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
+  <script src="./lib/jsvg.js"></script>
+  <script src="./lib/components/button.js"></script>
+  <script src="./app.js"></script>
+  
+
+  <script>
+    window.addEventListener("load", async (event) => {
+
+      jsvg.create.items()
+      const icon = await jsvg.load.icon('clubs', {height: 32})
+      //icon.addTo('#svgtxt')
+
+      const text = jsvg.create.text('hello world', {height: 32})
+      //text.addTo('#svgtxt')
+
+
+      const burger = jsvg.create.element('svgtxt', {
+        fill: 'black',
+        rx: 4,
+        width: 'auto',
+        spacing: { top: 4, right: 8, bottom: 4, left: 8 },
+        stroke: {
+          color: 'gray',
+          width: 1,
+          type: 'solid'
+        },
+        items: {
+          direction: 'row',
+          arrange: 'start', // start, end, center, evenly
+          align: 'center',
+        },
+        contains: [icon, text]
+      })
+
+
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>

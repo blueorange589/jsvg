@@ -13,17 +13,47 @@
 </head>
 
 <body>
+  <div id="app">
+    <div id="header"></div>
+    <div id="main">
+      <div id="content">
+        
+      </div>
+      <div id="footer"></div>
+    </div>
+  </div>
+
+
   <div id="buttons"></div>
 
   <object data="./imports/buttons.svg"> </object>
 
   <div id="square"></div>
 
+  <script src="./cdn_modules/opentype.js"></script>
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
   <script src="./lib/jsvg.js"></script>
   <script src="./lib/components/button.js"></script>
   <script src="./app.js"></script>
   <script>
+    const makeText = (str, fontSize = 16) => {
+      //const ctx = document.getElementById('canvas').getContext('2d'),
+      offsetY = (fontSize*0.8)
+      path = jsvg.font.getPath(str, 0, offsetY, fontSize),
+      bbox = path.getBoundingBox()
+
+      console.log(bbox)
+
+      const canvas = document.createElement('canvas')
+      canvas.width = bbox.x2
+      canvas.height = bbox.y2+4
+
+      const ctx = canvas.getContext('2d')
+
+      path.draw(ctx);
+      return canvas
+    }
+
     window.addEventListener("load", (event) => {
       const svgs = document.getElementsByTagName('svg')
       //s = SVG.html(bgrp[0]),
@@ -31,18 +61,26 @@
 
       // alert(svgs.length)
       console.log("page is fully loaded");
+
+
+
+      const buffer = fetch('https://assets.codepen.io/1070/basiersquare-bold-webfont.woff').then(res => res.arrayBuffer());
+      buffer.then(data => {
+          jsvg.font = opentype.parse(data);
+          const t1 = makeText('this is a PURE svg text')
+          const ct = document.getElementById('svgtext')
+          ct.appendChild(t1)
+
+          const t2 = makeText('welcome to SVG site')
+          const ct2 = document.getElementById('svgtext2')
+          ct2.appendChild(t2)
+
+      })
+
     });
 
 
-    SVG.on(document, 'DOMContentLoaded', function() {
-      var draw = SVG().addTo('#square').size(300, 300)
-      var rect = draw.rect(100, 100).attr({ fill: '#f06' })
-      
-      btn.addTo('#buttons')
-      btnblue.addTo('#buttons')
 
-
-    })
   </script>
 </body>
 

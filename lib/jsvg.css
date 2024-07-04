@@ -1,4 +1,4 @@
-html, body {
+html, body, #app {
   margin: 0px;
   padding: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,6 +7,24 @@ html, body {
   box-sizing: border-box;
 }
 
-.center{transform: translateX(50%);}
-.right{transform: translateX(99%);}
+#main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .full{width: 100%;}
+
+
+
+.flex{display: flex;}
+.direction_row{flex-direction: row;}
+.direction_column{flex-direction: column;}
+.arrange_evenly{justify-content: space-between;}
+.arrange_start{justify-content: start;}
+.arrange_center{justify-content: center;}
+.arrange_end{justify-content: end;}
+.align_start{align-items: start;}
+.align_center{align-items: center;}
+.align_end{align-items: end;}

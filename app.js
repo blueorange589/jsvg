@@ -1,39 +1,69 @@
-const btn = jsvg.button({
-  stretch: false,
-  size: 'md',
-  'stroke-width': 1
+/*
+
+const burger = jsvg.build.element({
+  fill: 'white',
+  rx: 4,
+  width: 48,
+  height: 48,
+  spacing: {top:4, right: 8, bottom: 4, left: 8},
+  stroke: {
+    color: 'red',
+    width: 1,
+    type: 'solid'
+  },
+  arrange: 'evenly', // start, end, center, evenly
+  align: 'center',
+  contains: [
+    {
+      type: 'text',
+      fill: 'pink',
+      text: 'hello'
+    },
+    {
+      type: 'text',
+      text: 'Menu'
+    }
+  ]
 })
 
-const btnblue = jsvg.button({
-  fill: 'blue',
-  'font-color': 'white',
-  stretch: false,
-  size: 'md',
-  stroke: 'red',
-  'stroke-width': 2
-})
 
-const layout = {
-  'header': {
-    'navbar': {
-      fill: 'blue',
+const navbar = jsvg.build.element({
+  fill: 'gray',
+  spacing: {top:4, right: 4, bottom: 4, left: 4},
+  elements: [burger]
+})
+  */
+/*
+const subbar = jsvg.build.element({
+  fill: 'green',
+  contains: {
+    text: {
+      align: 'center',
       'font-color': 'white',
-      contains: {
-        'logo': {
-          'fill': 'black',
-          'align': 'left'
-        },
-        'searchbar': {
-          'align': 'center'
-        },
-        'burger': {
-          fill: 'pink',
-          'align': 'right',
-          events: {
-            click: app.displayMenu
-          }
-        },
-      }
+      text: 'Welcome to jSVG site.'
     }
   }
-}
+})
+
+
+const header = jsvg.build.element({
+  fill: 'gray',
+  components: [navbar, subbar]
+})
+
+*/
+
+SVG.on(document, 'DOMContentLoaded', function() {
+  /*
+  btn.addTo('#buttons')
+  btnblue.addTo('#buttons')
+  */
+
+  /*
+  const header = jsvg.build(layout['header'])
+  const footer = jsvg.build(layout['footer'])
+
+  header.addTo('#header')
+  footer.addTo('#footer')
+  */
+})
