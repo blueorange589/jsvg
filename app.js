@@ -57,23 +57,21 @@ SVG.on(document, 'DOMContentLoaded', function() {
 
   const btn1 = jsvg.load.file('lib/svg/elementsUI/buttons/btn-1.svg').then(text => {
     const s = SVG(text)
-    s.addTo(document.body)
+    s.addTo(document.getElementById('btn2'))
+    s.children()[0].fill('#112a99')
+
     s.on('click', (e) => {
-      e.preventDefault()
-      console.log(s.children()[1])
+      console.log(s.children()[0])
       const t = s.children()[1].fill('#fff')
       const o = t.remember()
       console.log(o.x())
-      //const r = t.attr({fill: 'black'})
-      //t.animate().move(10, 10)
-      //t.timeline().reverse()
 
       t.animate({
         duration: 400,
         when: 'now',
         swing: true,
         times: 2
-      }).size(null, 20).move(10, 10).attr({ fill: '#ebe30e'})
+      }).size(null, 20).move(10, 10).attr({ fill: '#ebe30e' })
 
 
     })
