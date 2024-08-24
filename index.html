@@ -11,25 +11,39 @@
 
   <div id="btn1"></div>
   <div id="btn2"></div>
+  <div id="drawing"></div>
+  
   <script src="./cdn_modules/opentype.min.js"></script>
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
   <script src="./lib/jsvg.js"></script>
   <script src="./lib/components/button.js"></script>
   <script src="./app.js"></script>
-  
+
 
   <script>
     window.addEventListener("load", async (event) => {
 
-      const b = jsvg.button({width: 'auto'})
-      
+      const b = jsvg.button({ width: 'auto' })
+
       // alert(b)
+
+      var draw = SVG().addTo('#drawing')
+      var group = draw.group()
+      group.path('M10,20L30,40')
+      var ellipse = draw.ellipse(200, 100)
+      var line = draw.line(0, 0, 100, 150).stroke({ width: 1, color: '#fff' })
+      group.add(ellipse)
+      group.add(line)
+      line.center(100,50)
+      const lr = line.clone()
+      lr.flip('x')
+      group.add(lr)
+      
+      var svgString = draw.svg()
+      console.log(svgString)
 
 
     })
-
-
-
   </script>
 
 </body>
