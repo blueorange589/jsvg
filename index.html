@@ -5,20 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./lib/jsvg.css">
+  </link>
 </head>
 
 <body style="background-color: #222;">
 
   <div id="app">
     <div id="nav"></div>
-    <div id="main"></div>
+    <div id="main">
+      <div id="btn1"></div>
+      <div id="btn2"></div>
+      <div id="drawing"></div>
+
+    </div>
     <div id="footer"></div>
   </div>
 
 
-  <div id="btn1"></div>
-  <div id="btn2"></div>
-  <div id="drawing"></div>
+
 
   <script src="./cdn_modules/opentype.min.js"></script>
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
@@ -31,27 +36,27 @@
 
   <script>
     window.addEventListener("load", async (event) => {
-drawLayout()
-/*
-      const iconList = ['activity', 'airplay', 'anchor']
-      const iconUrls = iconList.map((icon) => `imports/feathericons/${icon}.svg`)
+      drawLayout()
+      /*
+            const iconList = ['activity', 'airplay', 'anchor']
+            const iconUrls = iconList.map((icon) => `imports/feathericons/${icon}.svg`)
 
 
-      fetchURLs(iconUrls)
-        .then(data => {
-          //console.log('Fetched data:', data)
-          for (i = 0; i < data.length; i++) {
-            elements[iconList[i]] = data[i]
-          }
-          return Promise.resolve(true)
-        })
-        .then((item) => {
-          drawLayout()
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error)
-        });
-*/
+            fetchURLs(iconUrls)
+              .then(data => {
+                //console.log('Fetched data:', data)
+                for (i = 0; i < data.length; i++) {
+                  elements[iconList[i]] = data[i]
+                }
+                return Promise.resolve(true)
+              })
+              .then((item) => {
+                drawLayout()
+              })
+              .catch(error => {
+                console.error('Error fetching data:', error)
+              });
+      */
 
       //const b = jsvg.button({ width: 'auto' })
 
@@ -71,8 +76,8 @@ drawLayout()
 
       var svgString = draw.flatten().svg()
       console.log(svgString)
-      
-      draw.rounded(20,20).fill(SVG.Color.random())
+
+      draw.rounded(20, 20).fill(SVG.Color.random())
 
 
     })
