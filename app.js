@@ -1,3 +1,6 @@
+const elements = {}
+
+
 /*
 
 const burger = jsvg.build.element({

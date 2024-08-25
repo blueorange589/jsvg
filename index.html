@@ -9,37 +9,65 @@
 
 <body>
 
+  <div id="app">
+    <div id="nav"></div>
+    <div id="main"></div>
+    <div id="footer"></div>
+  </div>
+
+
   <div id="btn1"></div>
   <div id="btn2"></div>
   <div id="drawing"></div>
-  
+
   <script src="./cdn_modules/opentype.min.js"></script>
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
   <script src="./lib/jsvg.js"></script>
-  <script src="./lib/components/button.js"></script>
+  <script src="./lib/loader.js"></script>
+  <script src="./lib/groups.js"></script>
   <script src="./app.js"></script>
 
 
   <script>
     window.addEventListener("load", async (event) => {
 
-      const b = jsvg.button({ width: 'auto' })
+      const iconList = ['activity', 'airplay', 'anchor']
+      const iconUrls = iconList.map((icon) => `imports/feathericons/${icon}.svg`)
+
+
+      fetchURLs(iconUrls)
+        .then(data => {
+          //console.log('Fetched data:', data)
+          for (i = 0; i < data.length; i++) {
+            elements[iconList[i]] = data[i]
+          }
+          return Promise.resolve(true)
+        })
+        .then((item) => {
+          drawLayout()
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error)
+        });
+
+
+      //const b = jsvg.button({ width: 'auto' })
 
       // alert(b)
 
       var draw = SVG().addTo('#drawing')
       var group = draw.group()
-      group.path('M10,20L30,40')
-      var ellipse = draw.ellipse(200, 100)
+      //group.path('M10,20L30,40')
+      var ellipse = group.ellipse(200, 100)
       var line = draw.line(0, 0, 100, 150).stroke({ width: 1, color: '#fff' })
       group.add(ellipse)
       group.add(line)
-      line.center(100,50)
+      line.center(100, 50)
       const lr = line.clone()
       lr.flip('x')
       group.add(lr)
-      
-      var svgString = draw.svg()
+
+      var svgString = draw.flatten().svg()
       console.log(svgString)
 
 
