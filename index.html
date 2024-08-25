@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 
-<body>
+<body style="background-color: #222;">
 
   <div id="app">
     <div id="nav"></div>
@@ -24,6 +24,7 @@
   <script src="./cdn_modules/svg.js@3.2.3/svg.js"></script>
   <script src="./lib/jsvg.js"></script>
   <script src="./lib/loader.js"></script>
+  <script src="../lib/components/multibutton.js"></script>
   <script src="./lib/groups.js"></script>
   <script src="./app.js"></script>
 
@@ -31,6 +32,7 @@
   <script>
     window.addEventListener("load", async (event) => {
 
+/*
       const iconList = ['activity', 'airplay', 'anchor']
       const iconUrls = iconList.map((icon) => `imports/feathericons/${icon}.svg`)
 
@@ -49,7 +51,7 @@
         .catch(error => {
           console.error('Error fetching data:', error)
         });
-
+*/
 
       //const b = jsvg.button({ width: 'auto' })
 
@@ -69,6 +71,8 @@
 
       var svgString = draw.flatten().svg()
       console.log(svgString)
+      
+      draw.rounded(20,20).fill(SVG.Color.random())
 
 
     })
